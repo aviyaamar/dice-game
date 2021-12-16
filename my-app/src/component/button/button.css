@@ -1,0 +1,25 @@
+
+@import url('http://fonts.cdnfonts.com/css/games');
+                
+.btn{
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 3;
+  background: transparent;
+  color: #d14159;
+  font-size: 14px;
+  border-color: #d14159;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 22px;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  transition: all 0.2s linear;
+  font-family: 'Games', sans-serif;
+    
+}
+.btn:hover{
+  background-color: #d14159;
+  color: white
+}
