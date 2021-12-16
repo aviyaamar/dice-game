@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;500;700&family=Smooch&display=swap');
-
 .score{
- font-family: 'Cairo', sans-serif;
+    font-family: 'Lobster', cursive;
+}
+.players{
+    text-align: center;
+
 }

@@ -39,8 +39,10 @@
 
 .sectionButton{
   display: flex;
-  justify-content:center;
-  align-items: center;
+  justify-content:space-around;
+  align-items: flex-end;
   flex-direction: row;
-  padding: 20px;
+  margin: 30px 0;
+
+  
 }

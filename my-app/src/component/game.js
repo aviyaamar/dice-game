@@ -37,7 +37,7 @@ class Game extends React.Component {
         let turnOfPlayer = {...players[this.state.turn]}
         console.log(turnOfPlayer)
 
-        if(cube1 ===  cube2){
+        if(cube1 +  cube2 === 12){
             turnOfPlayer.currentScore = 0;
             players[this.state.turn] = turnOfPlayer;
             this.setState({players})
@@ -89,7 +89,7 @@ class Game extends React.Component {
                     <div className='palyer-1'>
                         <Player
                             wins={this.state.players[0].holdScore >= this.state.scoreToWin}
-                            name="player-1"
+                            name="PLAYER-1"
                             score={this.state.players[0].holdScore}
                             currentScore={this.state.players[0].currentScore}
                         />
@@ -101,7 +101,7 @@ class Game extends React.Component {
                     <div className='palyer-2'>
                         <Player
                             wins={this.state.players[1].holdScore >= this.state.scoreToWin}
-                            name="player-2" 
+                            name="PLAYER-2" 
                             score={this.state.players[1].holdScore}
                             currentScore={this.state.players[1].currentScore}
                         />

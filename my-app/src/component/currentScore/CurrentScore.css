@@ -1,0 +1,18 @@
+.currentScore{
+    background-color: turquoise;
+    height: 130px;
+    width:130px;
+    text-align: center;
+    color:white;
+    position: relative;
+    left: 25px;
+
+}
+h4{
+    background-color: turquoise;
+    font-size: 30px;
+}
+p{
+    background-color: turquoise;
+    font-size: 25px;
+}

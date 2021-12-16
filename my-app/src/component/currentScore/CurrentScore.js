@@ -1,4 +1,5 @@
 import React from "react";
+import './CurrentScore.css';
 
 class CurrentScore extends React.Component{
     render(){

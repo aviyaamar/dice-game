@@ -1,8 +1,11 @@
 .dice-image{
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: row;
  justify-content: space-between;
   
+}
+.dice-image img{
+  padding: 20px;
 }
