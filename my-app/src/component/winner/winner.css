@@ -1,0 +1,17 @@
+.wins{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.wins p {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Games', sans-serif;
+
+}
+

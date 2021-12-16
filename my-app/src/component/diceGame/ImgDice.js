@@ -6,11 +6,11 @@ class Dice extends React.Component {
 		const diceNums = [1, 2, 3, 4, 5, 6];
 		return (
 			<div>
-				{diceNums.map((score) => {
+				{diceNums.map((score, index) => {
 					if (score === this.props.score) {
 						return (
 							<img style={{padding: '10px '}}
-								key={score}
+								key={index}
 								className="dice-image"
                                 src={`/dice-${score}.png`}
 								alt={`dice-${score}`}

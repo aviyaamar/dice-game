@@ -4,8 +4,10 @@
     width:130px;
     text-align: center;
     color:white;
-    position: relative;
-    left: 25px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
 
 }
 h4{

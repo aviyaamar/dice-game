@@ -2,23 +2,23 @@ import React from 'react';
 import Button from './button/button';
 import Player from './player/player'
 import Dice from './diceGame/ImgDice'
-
+import Winner from './winner/winner'
 
 class Game extends React.Component {
     state = {
         scoreToWin: 100,
-        turn: 0,
+        current: 0,
         dice: [null, null],
         players: [
             {
                 currentScore: 0,
                 holdScore: 0,
-                wins: 0
+                winner: 0
             },
             {
                 currentScore: 0,
                 holdScore: 0,
-                wins: 0
+                winner: 0
 
             }
         ]
@@ -32,24 +32,25 @@ class Game extends React.Component {
     rollDice = ()=>{
         let cube1 =  Math.floor(Math.random() * 6) + 1;
         let cube2 = Math.floor(Math.random() * 6) + 1;
-        let players = [...this.state.players]
-        console.log(players)
-        let turnOfPlayer = {...players[this.state.turn]}
-        console.log(turnOfPlayer)
-
+       let players = [...this.state.players]
+     //   console.log(players)
+        let currentPlayer = {...players[this.state.current]}
+        console.log({currentPlayer})
+      
         if(cube1 +  cube2 === 12){
-            turnOfPlayer.currentScore = 0;
-            players[this.state.turn] = turnOfPlayer;
+            currentPlayer.currentScore = 0;
+            players[this.state.current] = currentPlayer;
             this.setState({players})
-            if(this.state.turn === 0){
-                this.state.turn = 1
-            } else{
-                this.state.turn = 0
+            if(this.state.current === 0){
+                this.state.current = 1
+            } 
+            else{
+                this.state.current = 0
             }
         }
         else{
-            turnOfPlayer.currentScore += cube1 + cube2;
-            players[this.state.turn] =turnOfPlayer
+            currentPlayer.currentScore += cube1 + cube2;
+            players[this.state.current] =currentPlayer
             this.setState({players})
         }
 
@@ -58,25 +59,28 @@ class Game extends React.Component {
     
     hold = () =>{
         let players = [...this.state.players];
-        let playerRound = { ...players[this.state.turn] };
-        playerRound.holdScore += playerRound.currentScore;
-        players[this.state.turn] = playerRound;
-        if (players[this.state.turn].holdScore >= this.state.scoreToWin) {
-            playerRound.wins += 1;
+        let currentPlayer = { ...players[this.state.current] };
+        currentPlayer.holdScore += currentPlayer.currentScore;
+        players[this.state.current] = currentPlayer;
+        if (players[this.state.current].holdScore >= this.state.scoreToWin) {
+            currentPlayer.winner += 1;
             players[0].holdScore = 0;
             players[1].holdScore = 0;
-            players[this.state.turn] = playerRound;
+            players[this.state.current] = currentPlayer;
           
         }
-        playerRound.currentScore = 0;
+        currentPlayer.currentScore = 0;
         this.setState({ players });
-        this.state.playerTurn === 0
-            ? (this.state.turn = 1)
-            : (this.state.turn = 0);
-    }
-        
-    
+          if(this.state.current === 0 ){
+            (this.state.current = 1)
 
+        }
+            else{
+                (this.state.current = 0);
+            } 
+    }
+
+  
     render() {
         return (
             <div className="gameContainer">
@@ -88,11 +92,12 @@ class Game extends React.Component {
                 <div className='playerContainer'>
                     <div className='palyer-1'>
                         <Player
-                            wins={this.state.players[0].holdScore >= this.state.scoreToWin}
+                            winner={this.state.players[0].holdScore >= this.state.scoreToWin}
                             name="PLAYER-1"
                             score={this.state.players[0].holdScore}
                             currentScore={this.state.players[0].currentScore}
                         />
+                         <Winner winner={this.state.players[0].winner}/>
                     </div>
                     <div className='dice-container'>
                         <Dice score={this.state.dice[0]} />
@@ -100,11 +105,12 @@ class Game extends React.Component {
                     </div>
                     <div className='palyer-2'>
                         <Player
-                            wins={this.state.players[1].holdScore >= this.state.scoreToWin}
+                            winner={this.state.players[1].holdScore >= this.state.scoreToWin}
                             name="PLAYER-2" 
                             score={this.state.players[1].holdScore}
                             currentScore={this.state.players[1].currentScore}
                         />
+                          <Winner winner={this.state.players[0].winner}/>
                     </div>
                 </div>
 
