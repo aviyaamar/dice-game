@@ -42,10 +42,10 @@ class Game extends React.Component {
             players[this.state.current] = currentPlayer;
             this.setState({players})
             if(this.state.current === 0){
-               this.setState({current: this.state.current = 1})
+               this.setState({current: 1})
             } 
             else{
-                this.setState({current: this.state.current = 0})
+                this.setState({current: 0})
             }
         }
         else{
@@ -72,12 +72,12 @@ class Game extends React.Component {
         currentPlayer.currentScore = 0;
         this.setState({ players });
           if(this.state.current === 0 ){
-            this.setState({current: this.state.current = 1})
+            this.setState({current: 1})
 
 
         }
             else{
-                this.setState({current: this.state.current = 0})
+                this.setState({current: 0})
 
             } 
     }
