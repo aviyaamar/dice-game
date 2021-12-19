@@ -18,6 +18,7 @@ class Dice extends React.Component {
 							/>
 						);
 					}
+					return null
 				})}
 			</div>
 		);
